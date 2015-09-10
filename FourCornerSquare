@@ -48,4 +48,4 @@ void draw () {
   println(state);
 } 
 
-//reverse the direction of this square (or rewrite it) (Counter-Clockwise
+//reverse the direction of this square (or rewrite it) (Counter-Clockwise)
