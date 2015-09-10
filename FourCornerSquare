@@ -1,0 +1,51 @@
+int x = 0;
+int y = 0;
+
+int rectSize = 25;
+
+int state = 0;
+int speed = 5;
+
+void steup () {
+  size (500, 500); 
+  rectMode(CORNER);
+}
+
+void draw () {
+  background(255);
+  fill(0);
+
+  rect(x, y, rectSize, rectSize);
+
+  if (state == 0) { //top left to bottom left
+    y = y + speed;
+    if (y > height - rectSize) {
+      y = height - rectSize;
+      state = 1;
+    }
+  } else if (state == 1) { //bottom left to bottom right 
+    x = x + speed;
+    if (x > width - rectSize) {
+      x = width - rectSize;
+      state = 2;
+    }
+  } else if (state == 2) { //bottom right to top right
+    y =  y - speed; 
+    if (y == 0) {
+      y = 0;
+      state = 3;
+    }
+  } else if (state == 3) { //top right to top left
+    x = x - speed;
+    if (x < 0) {
+      x = 0;
+      state = 0;
+    }
+  }
+
+
+  print ("State is set to ");
+  println(state);
+} 
+
+//reverse the direction of this square (or rewrite it) (Counter-Clockwise
